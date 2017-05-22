@@ -30,7 +30,7 @@ class TestLibrary < MiniTest::Test
       ])
   end
 
-  def test_get_all_details()
+  def test_get_books()
     assert_equal([
       { 
           title: "The Trial",
@@ -53,8 +53,24 @@ class TestLibrary < MiniTest::Test
            date: "07/11/18"
           }
       }
-      ], @library_1.get_all_details())
-
+      ], @library_1.get_books())
   end
+
+  def test_find_book_by_title__returns_book
+    book = @library_1.find_book_by_title("The Trial")
+    assert_equal({ 
+          title: "The Trial",
+          rental_details: { 
+           student_name: "Eddie", 
+           date: "01/12/16"
+          }
+      }, book)
+  end
+
+  def test_find_book_by_title__returns_nil
+    book = @library_1.find_book_by_title("The Castle")
+    assert_nil(book)
+  end
+
 
 end

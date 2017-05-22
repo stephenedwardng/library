@@ -1,32 +1,24 @@
 class Library
 
-  def initialize(title, rental_details, student_name, date)
-    @title = title
-    @rental_details = rental_details
-    @student_name = student_name
-    @date = date
+  def initialize(books)
+    @books = books
   end
 
-  def get_title()
-    return @title
+  def get_books()
+    return @books
   end
 
-  def get_rental_details()
-    return @rental_details
-  end
+  def find_book_by_title(book_title)
 
-  def get_student_name()
-    return @student_name
-  end
-
-  def get_date()
-    return @date
-  end
-
-  def get_all_details(library)
-    for books in library
-      return 
+    # search through library array for book title then return hash element
+    for book in @books
+      if book[:title] == book_title
+        return book
+      end
     end
+
+    # specify 'nil' to be returned if not found 
+    return nil
 
   end
 
