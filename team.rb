@@ -37,12 +37,13 @@ class Team
   end
 
   def update_points(win)
-    if win == "Win"
-      @points += 3
-    elsif win == "Draw"
+    case win
+    when "Win"
+       @points += 3
+    when "Draw"
       @points += 1
-    elsif win == "Lose"
-      @points += 0
+    when "Lose"
+      @points += 0 
     end
   end
 
