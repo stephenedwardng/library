@@ -23,8 +23,11 @@ class Library
     return @date
   end
 
-  def get_all_details()
-    
+  def get_all_details(library)
+    for books in library
+      return 
+    end
+
   end
 
 end
